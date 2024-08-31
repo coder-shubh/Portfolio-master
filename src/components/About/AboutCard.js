@@ -10,7 +10,7 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Shubham Kumar Singh </span>
             from <span className="purple"> Greater Noida, India.</span>
-            <br /> A seasoned mobile application developer with <span className="purple">three years </span> of hands-on experience shaping digital solutions. Currently immersed in the dynamic realm of mobile development at <span className="purple"> Mavesys Infosoft Pvt Ltd </span>, I bring a wealth of expertise in crafting intuitive and efficient applications.
+            <br /> A seasoned mobile application developer with <span className="purple">three years </span> of hands-on experience shaping digital solutions. Currently immersed in the dynamic realm of mobile development at <span className="purple"> EY GDS (Ernst & Young) </span>, I bring a wealth of expertise in crafting intuitive and efficient applications.
             <br />
             I'm a passionate and creative Mobile Application Developer with a strong background in building apps for both <span className="purple">iOS and Android </span> platforms. My journey in the world of software development has led me to work with various technologies and frameworks, including <span className="purple">Android, iOS, React Native, and Flutter </span>.
             <br />
