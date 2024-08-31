@@ -6,7 +6,7 @@ import leaf from "../../Assets/Projects/leaf.png";
 import emotion from "../../Assets/Projects/emotion.png";
 import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/upwordo.png";
-import suicide from "../../Assets/Projects/suicide.png";
+import atta from "../../Assets/atta.png";
 import bitsOfCode from "../../Assets/plexys.png";
 
 function Projects() {
@@ -84,6 +84,15 @@ function Projects() {
               description="Plexys: Your pain partner. Calculate and track pain levels, take interactive tests, and visualize your health journey with intuitive graphs. Your data, your privacy—Plexys empowers you to manage pain, one insightful chart at a time. Take charge of your well-being, download Plexys now. 📊💪"
             // ghLink="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
             // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
+            />
+          </Col>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={atta}
+              isBlog={false}
+              title="atta (Enterprice Mobile Application)"
+              description="Experience the next level of security and convenience with Atta, the BBL Digital Wallet application. Our robust
+              authentication features ensure your transactions and personal information are always protected."
             />
           </Col>
         </Row>
