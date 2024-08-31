@@ -19,7 +19,7 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              Hello there! Welcome to my digital realm. I'm Shubham Kumar Singh, a versatile mobile application developer with a passion for crafting seamless experiences in the digital landscape.
+              Hello there! I'm Shubham Kumar Singh, a versatile mobile application developer with a passion for crafting seamless experiences in the digital landscape.
               <br />
               <br />My expertise spans across
               <i>
@@ -85,7 +85,7 @@ function Home2() {
               </li> */}
               <li className="social-icons">
                 <a
-                  href="www.linkedin.com/in/shubham-singh-503589203"
+                  href="https://www.linkedin.com/in/shubham-singh-503589203"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
