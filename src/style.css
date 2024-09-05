@@ -741,19 +741,51 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+.experience-container {
+  color: #f8f9fa; /* Light text color for dark mode */
+  background-color: #343a40; /* Dark background color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.project-heading {
+  color: #e83e8c; /* Light purple color */
+}
+
 .experience-section {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-.experience-section .card {
-  border: 1px solid #ddd;
+.experience-card {
+  border: none;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.experience-section .card-title {
+.experience-card:hover {
+  background-color: #6c757d; /* Slightly lighter on hover */
+}
+
+.experience-company {
   font-size: 1.5em;
+  color: #7a1b55; /* White text color for company name */
 }
 
-.experience-section .card-subtitle {
+.experience-role {
   font-size: 1.2em;
-  color: #888;
+  color: #7f1277; /* Light grey color for role */
+}
+
+.experience-duration {
+  font-size: 0.5em;
+  color: #21499f; /* Very light grey color for duration */
+}
+
+.modal-header {
+  border-bottom: 1px solid #495057; /* Darker border color */
+}
+
+.modal-footer {
+  border-top: 1px solid #495057; /* Darker border color */
 }
