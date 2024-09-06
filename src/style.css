@@ -741,3 +741,19 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+.experience-section {
+  margin-top: 40px;
+}
+
+.experience-section .card {
+  border: 1px solid #ddd;
+}
+
+.experience-section .card-title {
+  font-size: 1.5em;
+}
+
+.experience-section .card-subtitle {
+  font-size: 1.2em;
+  color: #888;
+}
