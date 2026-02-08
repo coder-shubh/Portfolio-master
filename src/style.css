@@ -181,6 +181,19 @@
   color: var(--black) !important;
 }
 
+/* Desktop: drawer is just a wrapper, panel and close hidden */
+.navbar-drawer {
+  display: flex;
+  align-items: center;
+}
+.navbar-drawer-backdrop,
+.navbar-drawer-close {
+  display: none;
+}
+.navbar-drawer-panel {
+  display: contents;
+}
+
 .navbar-toggle {
   display: none;
   flex-direction: column;
@@ -201,22 +214,120 @@
 
 @media (max-width: 768px) {
   .navbar-toggle { display: flex; }
-  .navbar-links {
+
+  .navbar-drawer {
+    display: block;
     position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0.4s var(--ease-out-expo);
+  }
+  .navbar-drawer.open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .navbar-drawer-backdrop,
+  .navbar-drawer-close {
+    display: block;
+  }
+  .navbar-drawer-panel {
+    display: flex;
+  }
+
+  .navbar-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease-out-expo);
+    cursor: pointer;
+  }
+  .navbar-drawer.open .navbar-drawer-backdrop {
+    opacity: 1;
+  }
+
+  .navbar-drawer-panel {
+    position: absolute;
     top: 0;
     right: 0;
     width: min(300px, 85vw);
     height: 100vh;
     background: var(--black-soft);
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+    display: flex;
     flex-direction: column;
-    padding: 5rem 2rem 2rem;
-    gap: 0;
     transform: translateX(100%);
     transition: transform 0.4s var(--ease-out-expo);
-    border-left: 1px solid var(--border);
+    overflow-y: auto;
   }
-  .navbar-links.open { transform: translateX(0); }
-  .navbar-links a { padding: 0.85rem 0; font-size: 1.05rem; }
+  .navbar-drawer.open .navbar-drawer-panel {
+    transform: translateX(0);
+  }
+
+  .navbar-drawer-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .navbar-drawer-close:hover {
+    background: var(--surface-elevated);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .navbar-drawer-close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .navbar-drawer .navbar-links {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 4.5rem 1.5rem 2rem;
+    gap: 0;
+    margin: 0;
+    list-style: none;
+    flex: 1;
+  }
+  .navbar-drawer .navbar-links li {
+    list-style: none;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .navbar-drawer .navbar-links li:last-child {
+    border-bottom: none;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+  }
+  .navbar-drawer .navbar-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    text-align: left;
+  }
+  .navbar-drawer .navbar-links .navbar-cta {
+    text-align: center;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    margin: 0;
+    border-radius: 999px;
+  }
 }
 
 /* ========== Hero — Cinematic ========== */
