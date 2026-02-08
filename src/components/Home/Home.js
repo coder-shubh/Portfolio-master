@@ -1,47 +1,46 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
-import Particle from "../Particle";
-import Home2 from "./Home2";
 import Type from "./Type";
+
+const RESUME_PDF_URL = `${process.env.PUBLIC_URL || ""}/Resume.pdf`;
 
 function Home() {
   return (
-    <section>
-      <Container fluid className="home-section" id="home">
-        <Particle />
-        <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
-
-              <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> SHUBHAM KUMAR SINGH</strong>
-              </h1>
-
-              <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
-              </div>
-            </Col>
-
-            <Col md={5} style={{ paddingBottom: 20 }}>
-              <img
-                src={homeLogo}
-                alt="home pic"
-                className="img-fluid"
-                style={{ maxHeight: "450px" }}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </Container>
-      <Home2 />
+    <section className="hero-cinematic" id="home">
+      <div className="hero-cinematic-bg" aria-hidden="true" />
+      <div className="hero-cinematic-content">
+        <div className="hero-now-badge">Building mobile apps at EY</div>
+        <p className="hero-label">Hi, I'm</p>
+        <h1 className="hero-name">
+          Shubham
+          <span className="hero-name-line2"> Kumar Singh</span>
+        </h1>
+        <div className="hero-role-wrap">
+          <Type />
+        </div>
+        <p className="hero-desc">
+          I build mobile and web experiences that users love. Senior Software Engineer at INVIA Pvt Ltd — 
+          React Native, Flutter, Android & iOS. From idea to App Store.
+        </p>
+        <div className="hero-cinematic-btns">
+          <a href="#projects" className="hero-btn hero-btn-primary">
+            View my work
+          </a>
+          <a href={RESUME_PDF_URL} target="_blank" rel="noreferrer" className="hero-btn hero-btn-secondary">
+            Download Resume
+          </a>
+        </div>
+      </div>
+      <img
+        src={homeLogo}
+        alt=""
+        className="hero-cinematic-visual"
+        aria-hidden="true"
+      />
+      <div className="hero-scroll-cue">
+        <span className="hero-scroll-cue-line" />
+        Scroll
+      </div>
     </section>
   );
 }

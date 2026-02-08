@@ -1,124 +1,93 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useActiveSection } from "../hooks/useActiveSection";
 
-import { CgFileDocument } from "react-icons/cg";
+const RESUME_PDF_URL = `${process.env.PUBLIC_URL || ""}/Resume.pdf`;
 
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const activeSection = useActiveSection();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const closeMobile = () => setMobileOpen(false);
+
+  const navLinks = [
+    { to: "#home", label: "Home" },
+    { to: "#about", label: "About" },
+    { to: "#experience", label: "Experience" },
+    { to: "#projects", label: "Projects" },
+    { to: "#contact", label: "Contact" },
+  ];
+
+  const handleNavClick = (e, linkTo) => {
+    e.preventDefault();
+    closeMobile();
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.querySelector(linkTo)?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     } else {
-      updateNavbar(false);
+      document.querySelector(linkTo)?.scrollIntoView({ behavior: "smooth" });
     }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
+  };
 
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex">
-        <strong className="main-name">SKS</strong>
+    <nav className={`portfolio-navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <Link to="/" className="navbar-brand" onClick={closeMobile}>
+          Shubham<span>.</span>
+        </Link>
 
-          {/* <img src={logo} className="img-fluid logo" alt="brand" /> */}
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+        <button
+          type="button"
+          className="navbar-toggle"
+          aria-label="Toggle menu"
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
           <span></span>
           <span></span>
           <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
+        </button>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            {/* <Nav.Item>
-              <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item> */}
-
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/coder-shubh"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <ul className={`navbar-links ${mobileOpen ? "open" : ""}`}>
+          {navLinks.map((link) => {
+            const sectionId = link.to.slice(1);
+            return (
+              <li key={link.to}>
+                <a
+                  href={link.to}
+                  onClick={(e) => handleNavClick(e, link.to)}
+                  className={activeSection === sectionId ? "nav-link-active" : ""}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
+          <li>
+            <a
+              href={RESUME_PDF_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="navbar-cta"
+              onClick={closeMobile}
+            >
+              Download Resume
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 
-export default NavBar;
+export default Navbar;

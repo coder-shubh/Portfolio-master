@@ -1,70 +1,19 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  const year = new Date().getFullYear();
+
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
-          <h3>Designed and Developed by Shubham Kumar Singh</h3>
-        </Col>
-        <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} SKS</h3>
-        </Col>
-        <Col md="4" className="footer-body">
-          <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href="https://github.com/coder-shubh"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-            {/* <li className="social-icons">
-              <a
-                href="https://twitter.com/Soumyajit4419"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiOutlineTwitter />
-              </a>
-            </li> */}
-            <li className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/shubham-singh-503589203"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-            {/* <li className="social-icons">
-              <a
-                href="https://www.instagram.com/soumyajit4419"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
-            </li> */}
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="portfolio-footer">
+      <p>
+        Designed & built by <strong>Shubham Kumar Singh</strong>
+        {" · "}
+        <a href="https://github.com/coder-shubh" target="_blank" rel="noreferrer">GitHub</a>
+        {" · "}
+        <a href="https://www.linkedin.com/in/shubham-singh-503589203" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
+      <p style={{ marginTop: "0.5rem" }}>© {year} SKS. All rights reserved.</p>
+    </footer>
   );
 }
 

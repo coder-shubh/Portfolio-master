@@ -6,13 +6,15 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Software Developer",
-          "Freelancer",
           "Mobile Application Developer",
+          "React Native & Flutter",
+          "Senior Software Engineer",
         ],
         autoStart: true,
         loop: true,
         deleteSpeed: 50,
+        wrapperClassName: "hero-role-inner",
+        cursorClassName: "hero-role-cursor",
       }}
     />
   );
