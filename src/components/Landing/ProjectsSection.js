@@ -1,8 +1,5 @@
 import React from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import chatify from "../../Assets/upwordo.png";
-import atta from "../../Assets/atta.png";
-import bitsOfCode from "../../Assets/plexys.png";
 
 // Add playStoreLink / appStoreLink for direct app links. Leave null to use store search by app name.
 const PROJECTS = [
@@ -63,7 +60,6 @@ const PROJECTS = [
 ];
 
 const PLAY_STORE_SEARCH = "https://play.google.com/store/search?q=";
-const APP_STORE_SEARCH = "https://apps.apple.com/search?term=";
 
 function ProjectsSection() {
   const ref = useScrollReveal();
