@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.5",
   "private": true,
-  "homepage": "https://coder-shubh.github.io/Portfolio-master",
+  "homepage": ".",
   "dependencies": {
     "@react-pdf/renderer": "^2.2.0",
     "@testing-library/jest-dom": "^5.16.2",
