@@ -9,7 +9,7 @@ function Home() {
     <section className="hero-cinematic" id="home">
       <div className="hero-cinematic-bg" aria-hidden="true" />
       <div className="hero-cinematic-content">
-        <div className="hero-now-badge">Building mobile apps at EY</div>
+        <div className="hero-now-badge">Building mobile apps at INVIA Pvt Ltd</div>
         <p className="hero-label">Hi, I'm</p>
         <h1 className="hero-name">
           Shubham
