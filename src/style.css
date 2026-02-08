@@ -1279,3 +1279,274 @@
   display: block;
   line-height: 1;
 }
+
+/* ========== Mobile responsive ========== */
+@media (max-width: 768px) {
+  .portfolio-navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-inner {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .hero-cinematic {
+    padding: 5rem 1rem 3rem;
+    min-height: 100vh;
+  }
+
+  .hero-cinematic .hero-name {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+
+  .hero-cinematic .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .hero-cinematic-btns {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: stretch;
+  }
+
+  .hero-cinematic .hero-btn {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .hero-scroll-cue {
+    bottom: 1.5rem;
+  }
+
+  .hero-scroll-cue-line {
+    height: 36px;
+  }
+
+  .portfolio-section {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .chapter-section,
+  .skills-section-inner,
+  .about-grid,
+  .contact-inner {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .chapter-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .about-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .about-card p {
+    font-size: 0.95rem;
+  }
+
+  .stats-row {
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+  }
+
+  .skills-block {
+    padding: 1.5rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .skills-block-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .skills-section-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    padding-left: 0.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    width: 10px;
+    height: 10px;
+    left: 0;
+  }
+
+  .timeline-item::after {
+    left: 4px;
+  }
+
+  .timeline-card {
+    padding: 1.25rem;
+  }
+
+  .timeline-company {
+    font-size: 1.05rem;
+  }
+
+  .timeline-role {
+    font-size: 0.875rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.875rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .project-card-cinematic-overlay {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .project-card-cinematic-title {
+    font-size: 1.15rem;
+  }
+
+  .project-card-cinematic-desc {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .project-card-cinematic-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-card-cinematic-links a,
+  .project-card-cinematic-links span {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .github-wrap {
+    padding: 1.5rem 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .contact-email {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-social a {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .portfolio-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .portfolio-footer p {
+    font-size: 0.8rem;
+  }
+
+  .back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cinematic {
+    padding: 4.5rem 0.75rem 2.5rem;
+  }
+
+  .hero-cinematic .hero-name {
+    font-size: 1.85rem;
+  }
+
+  .hero-now-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .about-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .stats-row {
+    gap: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .skills-grid-main,
+  .skills-grid-tools {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .skill-card-inner {
+    padding: 1rem 0.5rem;
+    min-height: 85px;
+  }
+
+  .skill-card-icon {
+    font-size: 1.65rem;
+  }
+
+  .skill-card-name {
+    font-size: 0.65rem;
+  }
+
+  .project-card-cinematic-title {
+    font-size: 1.05rem;
+  }
+
+  .project-card-cinematic-desc {
+    -webkit-line-clamp: 2;
+    font-size: 0.8rem;
+  }
+}
