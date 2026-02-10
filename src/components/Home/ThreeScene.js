@@ -258,7 +258,7 @@ function ThreeScene() {
 
       // Enhanced shape animations with more complex movements
       meshes.forEach(({ solid, wireframe }) => {
-        const { baseY, baseX, baseZ, speed, timeOffset, scale, color } = solid.userData;
+        const { baseY, baseX, baseZ, speed, timeOffset, scale } = solid.userData;
         
         // Complex 3D floating animation
         solid.position.y = baseY + Math.sin(t * 0.9 + timeOffset) * 1.2;
