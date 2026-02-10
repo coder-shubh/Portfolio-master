@@ -68,7 +68,7 @@ function ProjectsSection() {
   return (
     <section className="portfolio-section" id="projects" ref={ref}>
       <div className="section-particle-bg">
-        <ParticleBackground intensity={0.15} particleCount={120} />
+        <ParticleBackground intensity={0.12} particleCount={60} />
       </div>
       <div className="chapter-section" style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 2rem" }}>
         <span className="chapter-num reveal">04 — Portfolio</span>

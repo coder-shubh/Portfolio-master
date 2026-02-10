@@ -15,7 +15,7 @@ function AboutSection() {
   return (
     <section className="portfolio-section about-section" id="about" ref={ref}>
       <div className="section-particle-bg">
-        <ParticleBackground intensity={0.2} particleCount={150} />
+        <ParticleBackground intensity={0.15} particleCount={100} />
       </div>
       <div className="about-grid chapter-section">
         <div>

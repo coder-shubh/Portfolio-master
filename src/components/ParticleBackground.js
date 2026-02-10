@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
-function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0xEAB308, 0xF97316] }) {
+function ParticleBackground({ intensity = 0.3, particleCount = 200 }) {
   const containerRef = useRef(null);
+  const isMobileRef = useRef(window.innerWidth < 768);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -10,6 +11,10 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
 
     const width = container.clientWidth;
     const height = container.clientHeight;
+    const isMobile = isMobileRef.current;
+    
+    // Reduce particle count on mobile
+    const actualParticleCount = isMobile ? Math.floor(particleCount * 0.4) : particleCount;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -17,23 +22,21 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
 
     const renderer = new THREE.WebGLRenderer({ 
       alpha: true, 
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: "high-performance"
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
     container.appendChild(renderer.domElement);
 
-    // Subtle ambient light
     scene.add(new THREE.AmbientLight(0x404040, 0.2));
 
-    // Particle system
-    const positions = new Float32Array(particleCount * 3);
-    const particleColors = new Float32Array(particleCount * 3);
-    const sizes = new Float32Array(particleCount);
+    const positions = new Float32Array(actualParticleCount * 3);
+    const particleColors = new Float32Array(actualParticleCount * 3);
     const speeds = [];
+    const colors = [0xEAB308, 0xF97316];
     
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < actualParticleCount; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 30;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
@@ -47,7 +50,6 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
       particleColors[i * 3 + 1] = g;
       particleColors[i * 3 + 2] = b;
       
-      sizes[i] = Math.random() * 0.08 + 0.02;
       speeds.push({
         x: (Math.random() - 0.5) * 0.02,
         y: Math.random() * 0.02 + 0.005,
@@ -58,10 +60,9 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particlesGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
-    particlesGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
     
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.1,
+      size: isMobile ? 0.06 : 0.1,
       vertexColors: true,
       transparent: true,
       opacity: intensity,
@@ -74,38 +75,50 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
 
     let animationId;
     const clock = new THREE.Clock();
+    let lastTime = 0;
+    const targetFPS = isMobile ? 30 : 60;
+    const frameInterval = 1000 / targetFPS;
 
-    function animate() {
+    // Pause when not visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          clock.stop();
+        } else {
+          clock.start();
+        }
+      });
+    }, { threshold: 0 });
+
+    observer.observe(container);
+
+    function animate(currentTime) {
       animationId = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
-
-      const posAttr = particles.geometry.attributes.position;
-      const colorAttr = particles.geometry.attributes.color;
       
-      for (let i = 0; i < particleCount; i++) {
+      if (isMobile && currentTime - lastTime < frameInterval) {
+        return;
+      }
+      lastTime = currentTime;
+
+      // Keep clock running for potential future use
+      clock.getElapsedTime();
+      const posAttr = particles.geometry.attributes.position;
+      
+      for (let i = 0; i < actualParticleCount; i++) {
         const speed = speeds[i];
         posAttr.array[i * 3] += speed.x;
         posAttr.array[i * 3 + 1] += speed.y;
         posAttr.array[i * 3 + 2] += speed.z;
         
-        // Wrap around
         if (posAttr.array[i * 3] > 15) posAttr.array[i * 3] = -15;
         if (posAttr.array[i * 3] < -15) posAttr.array[i * 3] = 15;
         if (posAttr.array[i * 3 + 1] > 15) posAttr.array[i * 3 + 1] = -15;
         if (posAttr.array[i * 3 + 1] < -15) posAttr.array[i * 3 + 1] = 15;
         if (posAttr.array[i * 3 + 2] > 15) posAttr.array[i * 3 + 2] = -15;
         if (posAttr.array[i * 3 + 2] < -15) posAttr.array[i * 3 + 2] = 15;
-        
-        // Subtle color pulsing
-        const colorPulse = 0.7 + Math.sin(t * 2 + i * 0.1) * 0.3;
-        colorAttr.array[i * 3] *= colorPulse;
-        colorAttr.array[i * 3 + 1] *= colorPulse;
-        colorAttr.array[i * 3 + 2] *= colorPulse;
       }
       
       posAttr.needsUpdate = true;
-      colorAttr.needsUpdate = true;
-
       renderer.render(scene, camera);
     }
     animate();
@@ -120,14 +133,17 @@ function ParticleBackground({ intensity = 0.3, particleCount = 200, colors = [0x
     window.addEventListener('resize', handleResize);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
       renderer.dispose();
+      particles.geometry.dispose();
+      particles.material.dispose();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
     };
-  }, [intensity, particleCount, colors]);
+  }, [intensity, particleCount]);
 
   return <div ref={containerRef} className="particle-background-canvas" aria-hidden="true" />;
 }

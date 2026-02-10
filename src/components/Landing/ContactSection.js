@@ -10,7 +10,7 @@ function ContactSection() {
   return (
     <section className="portfolio-section contact-section" id="contact" ref={ref}>
       <div className="section-particle-bg">
-        <ParticleBackground intensity={0.25} particleCount={180} />
+        <ParticleBackground intensity={0.2} particleCount={80} />
       </div>
       <div className="contact-inner chapter-section" style={{ padding: "0 2rem" }}>
         <span className="chapter-num reveal">06 — Contact</span>
