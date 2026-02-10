@@ -350,6 +350,52 @@
     radial-gradient(ellipse 50% 40% at 0% 100%, rgba(234, 179, 8, 0.05) 0%, transparent 50%);
   pointer-events: none;
   animation: heroBgPulse 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-threejs-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.hero-threejs-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-threejs-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Particle background for sections */
+.section-particle-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle-background-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.particle-background-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.portfolio-section {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes heroBgPulse {

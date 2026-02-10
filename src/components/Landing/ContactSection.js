@@ -1,13 +1,17 @@
 import React from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { AiFillGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import ParticleBackground from "../ParticleBackground";
 
 function ContactSection() {
   const ref = useScrollReveal();
 
   return (
     <section className="portfolio-section contact-section" id="contact" ref={ref}>
+      <div className="section-particle-bg">
+        <ParticleBackground intensity={0.25} particleCount={180} />
+      </div>
       <div className="contact-inner chapter-section" style={{ padding: "0 2rem" }}>
         <span className="chapter-num reveal">06 — Contact</span>
         <h2 className="section-title reveal reveal-delay-1">
@@ -37,6 +41,14 @@ function ContactSection() {
             aria-label="LinkedIn"
           >
             <FaLinkedinIn />
+          </a>
+          <a
+            href="https://www.instagram.com/theks_shubham"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
           </a>
         </div>
       </div>

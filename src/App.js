@@ -22,6 +22,25 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Restrict copying and right-click to protect content
+  useEffect(() => {
+    const preventCopy = (e) => e.preventDefault();
+    const preventContextMenu = (e) => e.preventDefault();
+    const preventDrag = (e) => e.preventDefault();
+
+    document.addEventListener("copy", preventCopy);
+    document.addEventListener("cut", preventCopy);
+    document.addEventListener("contextmenu", preventContextMenu);
+    document.addEventListener("dragstart", preventDrag);
+
+    return () => {
+      document.removeEventListener("copy", preventCopy);
+      document.removeEventListener("cut", preventCopy);
+      document.removeEventListener("contextmenu", preventContextMenu);
+      document.removeEventListener("dragstart", preventDrag);
+    };
+  }, []);
+
   return (
     <Router>
       <Preloader load={load} />

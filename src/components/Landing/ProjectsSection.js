@@ -1,5 +1,6 @@
 import React from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import ParticleBackground from "../ParticleBackground";
 
 // Add playStoreLink / appStoreLink for direct app links. Leave null to use store search by app name.
 const PROJECTS = [
@@ -66,6 +67,9 @@ function ProjectsSection() {
 
   return (
     <section className="portfolio-section" id="projects" ref={ref}>
+      <div className="section-particle-bg">
+        <ParticleBackground intensity={0.15} particleCount={120} />
+      </div>
       <div className="chapter-section" style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 2rem" }}>
         <span className="chapter-num reveal">04 — Portfolio</span>
         <h2 className="section-title reveal reveal-delay-1">

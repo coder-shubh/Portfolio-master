@@ -1,6 +1,7 @@
 import React from "react";
 import homeLogo from "../../Assets/home-main.svg";
 import Type from "./Type";
+import ThreeScene from "./ThreeScene";
 
 const RESUME_PDF_URL = `${process.env.PUBLIC_URL || ""}/Resume.pdf`;
 
@@ -8,6 +9,9 @@ function Home() {
   return (
     <section className="hero-cinematic" id="home">
       <div className="hero-cinematic-bg" aria-hidden="true" />
+      <div className="hero-threejs-scene">
+        <ThreeScene />
+      </div>
       <div className="hero-cinematic-content">
         <div className="hero-now-badge">Building mobile apps at INVIA Pvt Ltd</div>
         <p className="hero-label">Hi, I'm</p>

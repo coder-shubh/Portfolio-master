@@ -42,6 +42,16 @@ body,
   color: var(--white) !important;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Allow selection in form fields if you add them later */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 body {

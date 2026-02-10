@@ -3,6 +3,7 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useInView } from "../../hooks/useInView";
 import { useCountUp } from "../../hooks/useCountUp";
 import laptopImg from "../../Assets/about.png";
+import ParticleBackground from "../ParticleBackground";
 
 function AboutSection() {
   const ref = useScrollReveal();
@@ -13,6 +14,9 @@ function AboutSection() {
 
   return (
     <section className="portfolio-section about-section" id="about" ref={ref}>
+      <div className="section-particle-bg">
+        <ParticleBackground intensity={0.2} particleCount={150} />
+      </div>
       <div className="about-grid chapter-section">
         <div>
           <span className="chapter-num reveal">01 — About</span>

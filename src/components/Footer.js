@@ -11,8 +11,10 @@ function Footer() {
         <a href="https://github.com/coder-shubh" target="_blank" rel="noreferrer">GitHub</a>
         {" · "}
         <a href="https://www.linkedin.com/in/shubham-singh-503589203" target="_blank" rel="noreferrer">LinkedIn</a>
+        {" · "}
+        <a href="https://www.instagram.com/theks_shubham" target="_blank" rel="noreferrer">Instagram</a>
       </p>
-      <p style={{ marginTop: "0.5rem" }}>© {year} SKS. All rights reserved.</p>
+      <p style={{ marginTop: "0.5rem" }}>© {year} coder-shubh. All rights reserved.</p>
     </footer>
   );
 }
