@@ -564,11 +564,12 @@
 .hero-scroll-cue {
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: #94949e;
   font-size: 0.75rem;
@@ -576,18 +577,39 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0;
-  animation: fadeUp 0.8s var(--ease-out-expo) 1.2s forwards;
+  animation: fadeUpScrollCue 0.8s var(--ease-out-expo) 1.2s forwards;
+  text-align: center;
 }
 
 .hero-scroll-cue-line {
+  display: block;
   width: 1px;
   height: 48px;
+  margin: 0 auto;
   background: linear-gradient(to bottom, var(--accent), transparent);
   border-radius: 2px;
   animation: scrollCue 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.hero-scroll-cue-text {
+  display: block;
+  text-align: center;
 }
 
 @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll cue uses its own animation so centering (left/right) is not affected by transform */
+@keyframes fadeUpScrollCue {
   from {
     opacity: 0;
     transform: translateY(28px);

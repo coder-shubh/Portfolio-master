@@ -42,8 +42,8 @@ function Home() {
         aria-hidden="true"
       />
       <div className="hero-scroll-cue">
-        <span className="hero-scroll-cue-line" />
-        Scroll
+        <span className="hero-scroll-cue-line" aria-hidden="true" />
+        <span className="hero-scroll-cue-text">Scroll</span>
       </div>
     </section>
   );
