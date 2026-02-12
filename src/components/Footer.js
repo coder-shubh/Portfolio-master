@@ -1,14 +1,10 @@
 import React from "react";
-import ThemeToggle from "./ThemeToggle";
 
 function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="portfolio-footer">
-      {/* <div className="footer-theme-wrap">
-        <ThemeToggle />
-      </div> */}
       <p>
         Designed & built by <strong>Shubham Kumar Singh</strong>
         {" · "}
