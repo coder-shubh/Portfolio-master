@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useActiveSection } from "../hooks/useActiveSection";
+import ThemeToggle from "./ThemeToggle";
 
 const RESUME_PDF_URL = `${process.env.PUBLIC_URL || ""}/Resume.pdf`;
 
@@ -92,6 +93,9 @@ function Navbar() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
+            <div className="navbar-drawer-theme-wrap">
+              <ThemeToggle />
+            </div>
             <ul className="navbar-links">
               {navLinks.map((link) => {
                 const sectionId = link.to.slice(1);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing/Landing";
@@ -42,6 +43,7 @@ function App() {
   }, []);
 
   return (
+    <ThemeProvider>
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
@@ -60,6 +62,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

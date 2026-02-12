@@ -21,6 +21,23 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
+/* Light theme */
+[data-theme="light"] {
+  --black: #fafaf9;
+  --black-soft: #f4f4f5;
+  --surface: #ffffff;
+  --surface-elevated: #f4f4f5;
+  --border: rgba(0, 0, 0, 0.08);
+  --white: #050508;
+  --muted: #71717a;
+  --muted-soft: #52525b;
+  --accent: #b45309;
+  --accent-soft: rgba(180, 83, 9, 0.15);
+  --accent-glow: rgba(180, 83, 9, 0.3);
+  --gradient-accent: linear-gradient(135deg, #b45309 0%, #c2410c 50%, #ea580c 100%);
+  --gradient-text: linear-gradient(90deg, #050508 0%, #b45309 50%, #050508 100%);
+}
+
 * {
   box-sizing: border-box;
 }
