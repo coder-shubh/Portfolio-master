@@ -1294,6 +1294,134 @@
   color: var(--accent) !important;
 }
 
+/* ========== Projects — Featured card ========== */
+.project-card-featured {
+  grid-column: span 2;
+  aspect-ratio: 16 / 7;
+}
+
+/* Project index number */
+.project-card-index {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Project tech tags */
+.project-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.project-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: var(--font-display);
+  backdrop-filter: blur(6px);
+}
+
+[data-theme="light"] .project-tag {
+  background: rgba(0, 0, 0, 0.07);
+  color: rgba(0, 0, 0, 0.65);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Store / link buttons */
+.project-link-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.project-link-play {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.project-link-play:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.project-link-apple {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.project-link-apple:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.project-link-demo {
+  background: var(--accent);
+  color: var(--black) !important;
+  border: 1px solid transparent;
+}
+
+.project-link-demo:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
+.project-link-gh-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-link-gh-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .project-link-play,
+[data-theme="light"] .project-link-apple,
+[data-theme="light"] .project-link-gh-btn {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.75) !important;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .project-link-play:hover,
+[data-theme="light"] .project-link-apple:hover,
+[data-theme="light"] .project-link-gh-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
 /* ========== GitHub ========== */
 .github-section { padding-bottom: 4rem; }
 
@@ -1677,6 +1805,11 @@
     gap: 1.25rem;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .project-card-featured {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
   }
 
   .project-card-cinematic-overlay {
