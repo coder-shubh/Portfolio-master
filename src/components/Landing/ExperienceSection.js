@@ -3,9 +3,20 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 const EXPERIENCES = [
   {
+    company: "INVIA Private Limited",
+    role: "Senior Software Engineer",
+    duration: "Sep 2024 – Present",
+    points: [
+      "Architecting and delivering cross-platform mobile applications using React Native and Flutter.",
+      "Leading end-to-end feature development from design review to App Store and Play Store deployment.",
+      "Driving code quality through thorough code reviews, performance optimisation, and best practices.",
+      "Collaborating with product and design teams to translate requirements into polished user experiences.",
+    ],
+  },
+  {
     company: "EY GDS (Ernst & Young)",
     role: "Senior Software Engineer",
-    duration: "Apr 2024 – Present",
+    duration: "Apr 2024 – Sep 2024",
     points: [
       "Leading development of complex mobile apps for iOS and Android.",
       "Architecting scalable solutions with React Native and Flutter.",

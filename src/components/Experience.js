@@ -10,6 +10,18 @@ const Experience = () => {
 
   const experiences = [
     {
+      company: "INVIA Private Limited",
+      role: "Software Engineer",
+      duration: "Sep 2024 - Present",
+      description: `
+        <ul>
+          <li>Contributing to the development and maintenance of software products at INVIA.</li>
+          <li>Collaborating with cross-functional teams to deliver high-quality solutions.</li>
+          <li>Implementing new features and improving existing functionality.</li>
+        </ul>
+      `
+    },
+    {
       company: "EY GDS (Ernst and Young)",
       role: "Senior Software Engineer",
       duration: "Apr 2024 - Present",

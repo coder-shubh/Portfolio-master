@@ -23,6 +23,16 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
+              imgPath={"https://play-lh.googleusercontent.com/u7cNIBCpJrwzKEJFSzmMFrsFtiNO3JZj3ZM_KdBBiXSnRPFNgE_n3mfHOJ06k9_fEw=w2560-h1440-rw"}
+              isBlog={false}
+              title="Feel Good Contacts"
+              description="UK's leading contact lens retailer app — browse, order, and manage contact lenses and eye care products with ease."
+              demoLink="https://apps.apple.com/in/app/feel-good-contacts/id1191834493"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
               imgPath={"https://play-lh.googleusercontent.com/C965UDXJD5HKGq8bXtVmRRIHiioX22GEtkewdX6jqpXS6BGvLKVmfW-9PZ6Ks7pTag=w2560-h1440-rw"}
               isBlog={false}
               title="MaveKart"

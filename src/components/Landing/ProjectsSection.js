@@ -5,6 +5,15 @@ import ParticleBackground from "../ParticleBackground";
 // Add playStoreLink / appStoreLink for direct app links. Leave null to use store search by app name.
 const PROJECTS = [
   {
+    title: "Feel Good Contacts",
+    description: "UK's leading contact lens retailer app — browse, order, and manage contact lenses and eye care products with ease.",
+    img: "https://play-lh.googleusercontent.com/X5utisb9ZUj4FOb9dG0z74ZHTcsJW9KIw-O-_fhcHnrz4XR8alv8yB5VKquvU8Asofs",
+    demoLink: null,
+    ghLink: null,
+    playStoreLink: "https://play.google.com/store/apps/details?id=app.feelgoodcontacts.com.feelgoodcontact",
+    appStoreLink: "https://apps.apple.com/in/app/feel-good-contacts/id1191834493",
+  },
+  {
     title: "Grannd Store",
     description: "E-commerce app: Android Studio → Native Android. Products, secure payments, seller features.",
     img: "https://play-lh.googleusercontent.com/QoVo-CSb9RA-GY-5Y-2iEbNgSVRDNN6GKOAZQ-7_JDpZ6ptJj6MYFyarNl772KT_ljM=w5120-h2880-rw",
